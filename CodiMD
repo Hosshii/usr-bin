@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cd /Users/wistre/Workspace/docker-hackmd
+END_TIME=$(($(date +%s) + 1500))
+docker-compose up >| wilog.txt  & 
+while [ $(date +%s) -lt $END_TIME ]
+do 
+    if grep "HTTP Server listening at port 3000" wilog.txt >/dev/null; then 
+        echo "HTTP Server listening at port 3000"
+        break
+    else
+        sleep 1
+    fi
+done 
+open http://localhost:3000
+cat << EOS
+
+when you stop CodiMD please type following command
+
+    docker stop docker-hackmd_app_1 docker-hackmd_database_1
+EOS
