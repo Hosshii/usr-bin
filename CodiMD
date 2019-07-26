@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /Users/wistre/Workspace/docker-hackmd
-END_TIME=$(($(date +%s) + 1500))
+END_TIME=$(($(date +%s) + 15))
 docker-compose up >| wilog.txt  & 
 while [ $(date +%s) -lt $END_TIME ]
 do 
