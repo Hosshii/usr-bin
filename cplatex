@@ -64,9 +64,6 @@ if [ -z $TEMPLATE_DIR ]; then
     TEMPLATE_DIR="$TEXPATH/.template/normal"
 fi
 
-echo $TEMPLATE_FILE
-echo $_DIRNAME
-echo "$TEMPLATE_DIR"
 # set tex file name
 if [ -z "$FILE" ]; then
     FILE="main.tex"
