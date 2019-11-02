@@ -49,7 +49,7 @@ for opt in "$@"; do
             exit 1
         ;;
         * )
-            if [[ -n "$1" ]] && [[ ! "$1" =~ ^-+ ]]; then
+            if [[ -n "$opt" ]] && [[ ! "$opt" =~ ^-+ ]]; then
                 if [[ -z $WORKSPACE ]]; then
                     WORKSPACE=$TEXPATH/$opt
                 else
@@ -63,6 +63,8 @@ done
 if [ -z $TEMPLATE_DIR ]; then
     TEMPLATE_DIR="$TEXPATH/.template/normal"
 fi
+echo $WORKSPACE
+echo $TEMPLATE_DIR
 
 # set tex file name
 if [ -z "$FILE" ]; then
